@@ -8,16 +8,13 @@ class MaxSubArray_Sum {
     }
 
     static int maxSubArraySum(int a[]) {
-        int size = a.length;
-        int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
-
-        for (int i = 0; i < size; i++) {
-            max_ending_here = max_ending_here + a[i];
-            if (max_so_far < max_ending_here)
-                max_so_far = max_ending_here;
-            if (max_ending_here < 0)
-                max_ending_here = 0;
+        int max = Integer.MIN_VALUE;
+        int max_sum = 0;
+        for(int i=0; i<a.length; i++){
+            max_sum = max_sum + a[i];
+            max = Math.max(max, max_sum);
+            max_sum = Math.max(0, max_sum);
         }
-        return max_so_far;
+        return max;
     }
 }

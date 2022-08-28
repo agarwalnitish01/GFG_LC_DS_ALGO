@@ -62,8 +62,7 @@ public class LongestSubStringWithoutRepeation {
             String current = String.valueOf(c);
 
             if (test.contains(current)) {
-                test = test.substring(test.indexOf(current)
-                        + 1);
+                test = test.substring(test.indexOf(current)+ 1);
             }
             test = test + c;
             maxLength = Math.max(test.length(), maxLength);
