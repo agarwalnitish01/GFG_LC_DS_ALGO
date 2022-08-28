@@ -10,15 +10,15 @@ public class SearchRotatedArray {
 
     public static int binarySearch(int[] nums, int target, int l, int h) {
         int mid = 0;
-        while(l<h){
+        while(l<=h){
             mid = (l + h)/2;
             if(nums[mid]==target){
                 return mid;
             }
             else if (nums[mid] > target){
-                h = mid;
+                h = mid-1;
             } else {
-                l = mid;
+                l = mid+1;
             }
         }
 
