@@ -33,14 +33,11 @@ public class Pascal_Triangle {
             List<Integer> temp = new ArrayList<>();
             for(j=0;j<=i;j++){
                 if(j - 1 >= 0 && j - 1 < n) {
-
-                    result[i][j] =( result[i - 1][j - 1]==-1?0:result[i - 1][j - 1]) + (result[i - 1][j]==-1?0:result[i - 1][j]);
-                    temp.add(result[i][j]);
-
+                    result[i][j] =Math.max(result[i - 1][j - 1], 0) + (Math.max(result[i - 1][j], 0));
                 } else {
                     result[i][j] = 1;
-                    temp.add(result[i][j]);
                 }
+                temp.add(result[i][j]);
             }
             res.add(temp);
         }
