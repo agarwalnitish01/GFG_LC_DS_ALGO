@@ -29,8 +29,7 @@ class LinkedList_MiddleElement {
        //ListNode listNode2_5 = new ListNode(3,listNode3);
         ListNode listNode2 = new ListNode(2,null);
         ListNode listNode1 = new ListNode(4,null);
-        head = new ListNode();
-        head.next = listNode1;
+        head = listNode1;
         listNode1.next = listNode2;
         listNode2.next = listNode3;
         listNode3.next = listNode4;
@@ -68,4 +67,10 @@ class LinkedList_MiddleElement {
         return true;
     }
 
+    public static void printList(LinkedList_Remove_duplicates_FromSorted.ListNode currNode) {
+        while (currNode != null) {
+            System.out.print(currNode.val + " ");
+            currNode = currNode.next;
+        }
+    }
 }
