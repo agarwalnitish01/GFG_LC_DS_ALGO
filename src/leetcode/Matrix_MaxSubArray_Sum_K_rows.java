@@ -1,6 +1,6 @@
 package leetcode;
 import java.util.*;
-class MaxSubArray_Matrix_Sum_K_rows {
+class Matrix_MaxSubArray_Sum_K_rows {
     public static int maxSumSubmatrix(int[][] matrix, int k) {
         int n = matrix.length;
         int m = matrix[0].length;

@@ -1,6 +1,6 @@
 package leetcode;
 
-public class RotateMatrix {
+public class Matrix_Rotate {
     public static void main(String[] args) {
 
 

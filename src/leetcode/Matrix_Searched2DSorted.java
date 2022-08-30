@@ -1,6 +1,6 @@
 package leetcode;
 
-public class Searched2DSortedMatrix {
+public class Matrix_Searched2DSorted {
     public static void main(String[] args) {
 
 
