@@ -1,24 +1,29 @@
 public class Backspace {
     public static void main(String args[]){
 
-        int k = 0;
-        char[] input =  "abc#de#f#ghi#jklmn#op#".toCharArray();
-        char[] result = new char[input.length];
+       System.out.println(getBackspacedResult("ab#c"));
 
-        for(int i = 0 ;i <input.length;i++){
-            if(input[i] == '#'){
-                if(k==0){
+    }
+
+    public static String  getBackspacedResult(String s){
+        int k = 0;
+        char[] input =  s.toCharArray();
+        char[] result = new char[input.length];
+        StringBuilder str = new StringBuilder();
+        for (char c : input) {
+            if (c == '#') {
+                if (k == 0) {
                     continue;
                 }
                 k--;
             } else {
-                result[k] = input[i];
+                result[k] = c;
                 k++;
             }
         }
         for(int i=0;i<k;i++) {
-            System.out.print(result[i]);
+            str.append(result[i]);
         }
-
+        return str.toString();
     }
 }
