@@ -43,9 +43,43 @@ class LetterCombinationsOfAPhoneNumber {
 
     // Driver code
     public static void main(String[] args) {
-        List<String> strings = letterCombinations("234");
+        List<String> strings = letterCombinations("23");
         for(String s : strings){
             System.out.print(s + " ");
         }
+    }
+
+
+    public static List<String> letterCombinations2(String digits) {
+        HashMap<Character,String> map = new HashMap<>(){{
+            put('2',"abc");
+            put('3',"def");
+            put('4',"ghi");
+            put('5',"jkl");
+            put('6',"mno");
+            put('7',"pqrs");
+            put('8',"tuv");
+            put('9',"wxyz");
+        }};
+
+        List<String> result = new ArrayList<>();
+        printComb(digits, "",map,result);
+        return result;
+    }
+
+    public static void printComb(String str, String combination, HashMap<Character,String> map, List<String> result) {
+        if (str.length()==0)
+        {
+            result.add(combination);
+            return;
+        }
+        char currstr = str.charAt(0);
+        String word = map.get(currstr);
+        for (int i = 0 ; i<word.length();i++){
+            printComb(str.substring(1),combination+word.substring(i,i+1),map, result);
+        }
+
+
+
     }
 }
