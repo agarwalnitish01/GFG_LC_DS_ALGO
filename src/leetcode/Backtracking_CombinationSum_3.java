@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CombinationSum_3 {
+public class Backtracking_CombinationSum_3 {
     public static List<List<Integer>> combinationSum(int k ,int target) {
         int[] candidates = {1,2,3,4,5,6,7,8,9};
         List<List<Integer>> result = new ArrayList<>();

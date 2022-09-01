@@ -3,14 +3,20 @@ package leetcode;
 class LongestCommonPrefix {
     public static String longestCommonPrefix(String[] strs) {
         String res = strs[0];
-        for (int i = 0; i < strs.length; i++) {
-            while (strs[i].indexOf(res) != 0) //indexof() return 0 if found else -1
+        for (String str : strs) {
+            while (str.indexOf(res) != 0) //indexof() return 0 if found else -1
             {
                 res = res.substring(0, res.length() - 1);
                 //substring() will chop 1 letter at last each time indexOf gives -1;
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        String[] arr = {"flower","fl","flight"};
+        System.out.println(longestCommonPrefix(arr));
+        System.out.println(longestCommonPrefix2(arr));
     }
 
     public static String longestCommonPrefix2(String[] arr) {
@@ -36,11 +42,5 @@ class LongestCommonPrefix {
         }
 
         return (result);
-    }
-
-    public static void main(String[] args) {
-        String[] arr = {"flower","fl","flight"};
-        System.out.println(longestCommonPrefix(arr));
-        System.out.println(longestCommonPrefix2(arr));
     }
 }

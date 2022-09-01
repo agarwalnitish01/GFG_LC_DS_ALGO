@@ -1,10 +1,8 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-public class CombinationSum_2 {
+public class Backtracking_CombinationSum_1 {
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(candidates);
@@ -22,17 +20,15 @@ public class CombinationSum_2 {
         }
 
         for(int i = j ;i<candidates.length;i++){
-            if(i>j && candidates[i-1] == candidates[i])
-                continue;
             current.add(candidates[i]);
-            dfs(candidates,target-candidates[i],current,result,i+1);
+            dfs(candidates,target-candidates[i],current,result,i);
             current.remove(current.size()-1);
         }
     }
 
     public static void main(String[] args) {
-        int[] arr = {10,1,2,7,6,1,5};
-        List<List<Integer>> result = combinationSum(arr,8);
+        int[] arr = {2,5,2,1,2};
+        List<List<Integer>> result = combinationSum(arr,5);
 
         for(List<Integer> list : result){
             for(int a : list){

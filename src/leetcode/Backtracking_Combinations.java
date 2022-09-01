@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Combinations {
+public class Backtracking_Combinations {
     public static List<List<Integer>> combinations(int k ,int n) {
         int[] candidates = new int[n];
         for(int i = 1 ;i <=n;i++){

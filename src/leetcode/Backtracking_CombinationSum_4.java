@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CombinationSum_4 {
+public class Backtracking_CombinationSum_4 {
     public static int combinationSum(int[] candidates, int target) {
         int[] result = {0};
         Arrays.sort(candidates);
