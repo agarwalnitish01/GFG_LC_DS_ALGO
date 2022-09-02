@@ -24,7 +24,7 @@ class ReverseDigits
             num = num/10;
         }
 
-        return (negativeFlag == true)? -rev_num : rev_num;
+        return negativeFlag? -rev_num : rev_num;
     }
 
     public static void main (String[] args)

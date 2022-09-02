@@ -1,7 +1,7 @@
 package leetcode;
 import java.util.*;
 
-public class ransomNote {
+public class String_ransomNote {
     public static void main(String args[]){
         String input = "aa";
         String mag = "aab";

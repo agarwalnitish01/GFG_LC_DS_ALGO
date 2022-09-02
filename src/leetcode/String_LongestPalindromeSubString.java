@@ -3,7 +3,7 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LongestPalindromeSubString {
+public class String_LongestPalindromeSubString {
     public static void main(String[] args) {
         System.out.println(lengthOfLongestPalindromeSubstring("cccc"));
         System.out.println(lengthOfLongestPalindromeSubstring2("cccc"));

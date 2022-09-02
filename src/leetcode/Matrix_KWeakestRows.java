@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.Arrays;
 
-public class KWeakestRows {
+public class Matrix_KWeakestRows {
     public static void main(String[] args) {
         int k = 3;
 

@@ -1,7 +1,7 @@
 package leetcode;
 
 
-class StringToInteger {
+class String_StringToInteger {
 
     public static void main(String args[]) {
         String s = "-2147483649";

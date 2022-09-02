@@ -1,7 +1,7 @@
 package leetcode;
 import java.util.*;
 
-public class FirstUniqueCharacter {
+public class String_FirstUniqueCharacter {
     public static int firstUniqChar(String s) {
         HashMap<Character, Integer> map = new HashMap<>();
         char[] chars = s.toCharArray();

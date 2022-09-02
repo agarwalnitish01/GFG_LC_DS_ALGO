@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-public class LongestSubStringWithoutRepeation {
+public class String_LongestSubStringWithoutRepeation {
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring("abcabcbb"));
         System.out.println(longestUniqueSubsttr("abcabcbb"));
