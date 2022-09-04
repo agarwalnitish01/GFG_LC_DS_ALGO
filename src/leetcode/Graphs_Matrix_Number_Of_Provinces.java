@@ -3,7 +3,7 @@ package leetcode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Matrix_Number_Of_Provinces {
+class Graphs_Matrix_Number_Of_Provinces {
 
     public static int findCircleNum(int[][] isConnected) {
         int n = isConnected.length;

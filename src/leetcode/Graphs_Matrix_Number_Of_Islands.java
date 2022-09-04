@@ -3,7 +3,7 @@ package leetcode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Matrix_Number_Of_Islands {
+class Graphs_Matrix_Number_Of_Islands {
     public static void main(String[] args) {
         char[][] mat = {{'1','1','1','1','0'},
                 {'1','1','0','1','0'},
