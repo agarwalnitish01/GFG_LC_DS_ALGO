@@ -6,7 +6,7 @@ public class String_LongestSubStringWithoutRepeation {
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring("abcabcbb"));
         System.out.println(longestUniqueSubsttr("abcabcbb"));
-        System.out.println(longestUniqueSubsttr1("abcabcbb"));
+        System.out.println(longestUniqueSubsttr1("abcabcbba"));
     }
 
     public static int lengthOfLongestSubstring(String s) {
@@ -74,22 +74,16 @@ public class String_LongestSubStringWithoutRepeation {
 
     static int longestUniqueSubsttr1(String s)
     {
-
-        // Creating a set to store the last positions of occurrence
         HashMap<Character, Integer> map = new HashMap<>();
-        int maximum_length = 0;
-
+        int maximum_length = Integer.MIN_VALUE;
         int start = 0;
 
-        for(int i = 0; i < s.length(); i++)
-        {
-            if(map.containsKey(s.charAt(i)))
-            {
-                start = Math.max(start, map.get(s.charAt(i)) + 1);
+        for(int i = 0; i < s.length(); i++) {
+            if(map.containsKey(s.charAt(i))) {
+                start = Math.max(start, map.get(s.charAt(i))+1);
             }
-
             map.put(s.charAt(i), i);
-            maximum_length = Math.max(maximum_length, i-start + 1);
+            maximum_length = Math.max(maximum_length, i-start+1 );
         }
         return maximum_length;
     }

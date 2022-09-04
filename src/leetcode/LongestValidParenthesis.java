@@ -1,6 +1,5 @@
 package leetcode;
 
-import java.util.HashMap;
 import java.util.Stack;
 
 public class LongestValidParenthesis {
@@ -35,27 +34,4 @@ public class LongestValidParenthesis {
         return max;
     }
 
-
-    public static int minimum_Add2(String s) {
-        Stack<Character> stack = new Stack<>();
-        HashMap<Character,Character> map = new HashMap<>();
-        map.put(')','(');
-        map.put(']','[');
-        map.put('}','{');
-
-        int c=0;
-        int max=0;
-        for (char value : s.toCharArray()) {
-            if (!stack.isEmpty() && stack.peek() == map.get(value)) {
-                stack.pop();
-                c=c+2;
-                max = Math.max(max,c);
-            } else {
-                stack.push(value);
-                c=0;
-            }
-        }
-
-        return max;
-    }
 }

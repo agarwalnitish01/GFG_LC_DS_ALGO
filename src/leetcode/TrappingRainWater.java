@@ -5,7 +5,6 @@ public class TrappingRainWater {
         int n = height.length;
         int[] left = new int[n];
         int[] right = new int[n];
-        int[] result = new int[n];
 
         left[0] = height[0];
         for(int i =1;i<n;i++)

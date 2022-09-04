@@ -1,5 +1,7 @@
 package leetcode;
 import java.util.*;
+//https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/
+
 class Matrix_MaxSubArray_Sum_K_rows {
     public static int maxSumSubmatrix(int[][] matrix, int k) {
         int n = matrix.length;
@@ -11,9 +13,8 @@ class Matrix_MaxSubArray_Sum_K_rows {
             int[] sum = new int[n];
 
             for(int j = i; j<m; j++){
-
                 for(int r = 0; r<n; r++){
-                    sum[r] += matrix[r][j];
+                    sum[r] = sum[r] + matrix[r][j];
                 }
 
                 int currMax = findMaxSubarraySum(sum,k);

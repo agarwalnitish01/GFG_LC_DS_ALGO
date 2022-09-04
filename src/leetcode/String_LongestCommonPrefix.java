@@ -4,10 +4,8 @@ class String_LongestCommonPrefix {
     public static String longestCommonPrefix(String[] strs) {
         String res = strs[0];
         for (String str : strs) {
-            while (str.indexOf(res) != 0) //indexof() return 0 if found else -1
-            {
+            while (str.indexOf(res) != 0) {
                 res = res.substring(0, res.length() - 1);
-                //substring() will chop 1 letter at last each time indexOf gives -1;
             }
         }
         return res;

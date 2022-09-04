@@ -1,42 +1,10 @@
 package leetcode;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.*;
 
 class Sliding_window {
+
     public static int[] maxSlidingWindow(int[] arr, int K) {
-        int N = arr.length;
-        Deque<Integer> Qi = new LinkedList<>();
-
-        int i;
-        for (i = 0; i < K; ++i) {
-            while (!Qi.isEmpty() && arr[i] >= arr[Qi.peekLast()]) {
-                Qi.removeLast();
-            }
-            Qi.addLast(i);
-        }
-
-        int[] result = new int[N - K + 1];
-        int count = 0;
-        for (i = K; i < N; ++i) {
-
-            result[count++] = arr[Qi.peek()];
-
-            while ((!Qi.isEmpty()) && Qi.peek() <= i - K)
-                Qi.removeFirst();
-
-            while ((!Qi.isEmpty())
-                    && arr[i] >= arr[Qi.peekLast()])
-                Qi.removeLast();
-
-            Qi.addLast(i);
-        }
-        result[count++] = arr[Qi.peek()];
-        return result;
-    }
-
-
-    public static int[] maxSlidingWindow2(int[] arr, int K) {
         int N = arr.length;
         int[] result = new int[N - K + 1];
         int count = 0;
@@ -54,16 +22,38 @@ class Sliding_window {
 
     // Driver code
     public static void main(String[] args) {
-        int[] arr = {1, 3, -1, -3, 5, 3, 6, 7};
-        int[] result = maxSlidingWindow(arr, 3);
-        for (int i = 0; i < result.length; i++)
-            System.out.print(result[i] + " ");
+        int[] arr = {1,3,-1,-3,5,3,6,7};
+        int[] result = maxSlidingWindow2(arr, 3);
+        for (int value : result)
+            System.out.print(value + " ");
 
-        System.out.println();
+    }
 
-        int[] result2 = maxSlidingWindow2(arr, 3);
-        for (int i = 0; i < result2.length; i++)
-            System.out.print(result2[i] + " ");
+    public static int[] maxSlidingWindow2(int[] nums, int k) {
+        Deque<Integer> deque = new ArrayDeque<>();
+        int[] result = new int[nums.length-k+1];
+
+        int i,window=0,j=0;
+        for(i=0; i<nums.length; i++) {
+            if(window < k)
+                window++;
+            else if(deque.size()>0 && deque.peek() == i-k) {
+                deque.pollFirst();
+            }
+
+            while(deque.size()>0 && nums[i] > nums[deque.peekLast()]) {
+                deque.pollLast();
+            }
+
+            deque.add(i);
+
+            if(window >= k) {
+                result[j] = nums[deque.peek()];
+                j++;
+            }
+        }
+
+        return result;
     }
 }
 
