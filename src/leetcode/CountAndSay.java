@@ -5,24 +5,20 @@ import java.util.*;
 public class CountAndSay {
 
     public static void main(String[] args) {
-        System.out.println(countUtil(3));
+        System.out.println(countUtil(4));
     }
 
     static String countUtil(int n){
         String res = "1";
         for(int i = 0 ;i<n-1;i++){
-            int[] arr = new int[res.length()];
-            int k = 0 ;
-            for(int j = 0 ; j< res.length(); j++){
-                arr[k++] = res.charAt(j)-48;
-            }
+            char[] arr = res.toCharArray();
             res = FrequencyCountAndCharacter(arr);
         }
 
         return res;
     }
 
-    static String FrequencyCountAndCharacter(int[] arr)
+    static String FrequencyCountAndCharacter(char[] arr)
     {
         String s = "";
         int count = 1;
@@ -30,11 +26,13 @@ public class CountAndSay {
             if(arr[i]==arr[i+1]){
                 count++;
             } else {
-                s = s + count + arr[i];
+                char freq = (char) (count + 48);
+                s = s + freq + arr[i];
                 count=1;
             }
         }
-        s = s + count + arr[arr.length-1];
+        char freq = (char) (count + 48);
+        s = s + freq + arr[arr.length-1];
         return s;
     }
 }

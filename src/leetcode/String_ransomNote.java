@@ -6,7 +6,7 @@ public class String_ransomNote {
         String input = "aa";
         String mag = "aab";
         System.out.println(isRansomNote(input, mag));
-}
+    }
 
     private static boolean isRansomNote(String input, String mag) {
         Map<Character,Integer> map1 = new HashMap<>();
