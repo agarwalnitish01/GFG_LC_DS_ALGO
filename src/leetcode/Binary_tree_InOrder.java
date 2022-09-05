@@ -23,6 +23,21 @@ public class Binary_tree_InOrder {
         }
     }
 
+    public static List<Integer> preOrderTraversal(TreeNode root) {
+        List<Integer> integers = new ArrayList<>();
+        preOrder(root,integers);
+        return integers;
+    }
+
+    public static void  preOrder(TreeNode root,List<Integer> result) {
+        if(root==null) {
+            return;
+        }
+        result.add(root.val);
+        preOrder(root.left,result);
+        preOrder(root.right,result);
+    }
+
     public static List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> integers = new ArrayList<>();
         inorder(root,integers);
@@ -38,6 +53,20 @@ public class Binary_tree_InOrder {
         inorder(root.right,result);
     }
 
+    public static List<Integer> postOrderTraversal(TreeNode root) {
+        List<Integer> integers = new ArrayList<>();
+        postOrder(root,integers);
+        return integers;
+    }
+
+    public static void  postOrder(TreeNode root,List<Integer> result) {
+        if(root==null) {
+            return;
+        }
+        postOrder(root.left,result);
+        postOrder(root.right,result);
+        result.add(root.val);
+    }
     public static void main(String[] args){
         TreeNode tree = new TreeNode(1);
         tree.left = new TreeNode(2);
@@ -51,14 +80,18 @@ public class Binary_tree_InOrder {
                     1
                2        3
             4    5    6    7
-
-
-
-
         */
 
+        for(int a : preOrderTraversal(tree)){
+            System.out.print(a+ " ");
+        }
+        System.out.println();
         for(int a : inorderTraversal(tree)){
-            System.out.println(a);
+            System.out.print(a+ " ");
+        }
+        System.out.println();
+        for(int a : postOrderTraversal(tree)){
+            System.out.print(a+ " ");
         }
     }
 }

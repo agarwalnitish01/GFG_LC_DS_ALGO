@@ -63,23 +63,19 @@ class LetterCombinationsOfAPhoneNumber {
         }};
 
         List<String> result = new ArrayList<>();
-        printComb(digits, "",map,result);
+        dfs(digits, "",map,result);
         return result;
     }
 
-    public static void printComb(String str, String combination, HashMap<Character,String> map, List<String> result) {
-        if (str.length()==0)
-        {
+    public static void dfs(String str, String combination, HashMap<Character,String> map, List<String> result) {
+        if (str.length()==0) {
             result.add(combination);
             return;
         }
         char currstr = str.charAt(0);
         String word = map.get(currstr);
         for (int i = 0 ; i<word.length();i++){
-            printComb(str.substring(1),combination+word.substring(i,i+1),map, result);
+            dfs(str.substring(1),combination+word.substring(i,i+1),map, result);
         }
-
-
-
     }
 }

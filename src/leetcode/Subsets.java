@@ -22,7 +22,7 @@ class Subsets {
 
     public static void main(String[] args) {
         int[] arr = {10,20,30};
-        List<List<Integer>> result = subsets2(arr);
+        List<List<Integer>> result = subsets(arr);
 
         for(List<Integer> list : result){
             for(int a : list){

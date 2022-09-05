@@ -2,65 +2,64 @@
 // method for Zigzag order traversal
 import java.util.*;
 
-class Btree {
-    Node rootNode;
+public class ZigZagTraversal {
 
-    void printZigZagTraversal() {
+    static class Btree {
+        Node rootNode;
 
-        // if null then return
-        if (rootNode == null) {
-            return;
-        }
+        void printZigZagTraversal() {
 
-        // declare two stacks
-        Stack<Node> currentLevel = new Stack<>();
-        Stack<Node> nextLevel = new Stack<>();
-
-        // push the root
-        currentLevel.push(rootNode);
-        boolean leftToRight = true;
-
-        // check if stack is empty
-        while (!currentLevel.isEmpty()) {
-
-            // pop out of stack
-            Node node = currentLevel.pop();
-
-            // print the data in it
-            System.out.print(node.key + " ");
-
-            // store data according to current
-            // order.
-            if (leftToRight) {
-                if (node.left != null) {
-                    nextLevel.push(node.left);
-                }
-
-                if (node.right != null) {
-                    nextLevel.push(node.right);
-                }
-            }
-            else {
-                if (node.right != null) {
-                    nextLevel.push(node.right);
-                }
-
-                if (node.left != null) {
-                    nextLevel.push(node.left);
-                }
+            // if null then return
+            if (rootNode == null) {
+                return;
             }
 
-            if (currentLevel.isEmpty()) {
-                leftToRight = !leftToRight;
-                currentLevel = nextLevel;
-                nextLevel = new Stack<>();
+            // declare two stacks
+            Stack<Node> currentLevel = new Stack<>();
+            Stack<Node> nextLevel = new Stack<>();
+
+            // push the root
+            currentLevel.push(rootNode);
+            boolean leftToRight = true;
+
+            // check if stack is empty
+            while (!currentLevel.isEmpty()) {
+
+                // pop out of stack
+                Node node = currentLevel.pop();
+
+                // print the data in it
+                System.out.print(node.key + " ");
+
+                // store data according to current
+                // order.
+                if (leftToRight) {
+                    if (node.left != null) {
+                        nextLevel.push(node.left);
+                    }
+
+                    if (node.right != null) {
+                        nextLevel.push(node.right);
+                    }
+                }
+                else {
+                    if (node.right != null) {
+                        nextLevel.push(node.right);
+                    }
+
+                    if (node.left != null) {
+                        nextLevel.push(node.left);
+                    }
+                }
+
+                if (currentLevel.isEmpty()) {
+                    leftToRight = !leftToRight;
+                    currentLevel = nextLevel;
+                    nextLevel = new Stack<>();
+                }
             }
         }
     }
-}
-
-public class ZigZagTraversal {
-
     // driver program to test the above function
     public static void main(String[] args)
     {
