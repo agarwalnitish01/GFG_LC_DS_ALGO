@@ -29,9 +29,9 @@ public class Backtracking_CombinationSum_4 {
     }
 
     public static void main(String[] args) {
-        int[] arr = {4,2,1};
-        System.out.println(combinationSum(arr,4));
-        System.out.println(combinationSum4(arr,4));
+        int[] arr = {1,2,3};
+        System.out.println(combinationSum(arr,3));
+        System.out.println(combinationSum4(arr,3));
     }
 
 
