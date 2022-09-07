@@ -3,7 +3,7 @@ package leetcode;
 import java.util.*;
 
 
-public class Binary_tree_InOrder {
+public class Binary_tree_Traversals {
     static class TreeNode {
         int val;
         TreeNode left;
