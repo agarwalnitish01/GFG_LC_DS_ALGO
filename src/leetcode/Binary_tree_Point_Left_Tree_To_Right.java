@@ -3,7 +3,7 @@ package leetcode;
 import java.util.*;
 
 
-public class Binary_tree_PointLeftTree_To_Right {
+public class Binary_tree_Point_Left_Tree_To_Right {
     static class Node {
         int val;
         Node left;
