@@ -86,12 +86,58 @@ public class Binary_tree_InOrder {
             System.out.print(a+ " ");
         }
         System.out.println();
+        preOrderIterative(tree);
+        System.out.println();
         for(int a : inorderTraversal(tree)){
             System.out.print(a+ " ");
         }
         System.out.println();
+        inorderIterative(tree);
+        System.out.println();
         for(int a : postOrderTraversal(tree)){
             System.out.print(a+ " ");
+        }
+    }
+
+    public static void inorderIterative(TreeNode root)
+    {
+        if (root == null)
+            return;
+
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            while (curr !=  null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            System.out.print(curr.val + " ");
+            curr = curr.right;
+        }
+    }
+
+
+    public static void preOrderIterative(TreeNode root)
+    {
+        if (root == null)
+            return;
+
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                System.out.print(curr.val + " ");
+                if (curr.right != null)
+                    stack.push(curr.right);
+
+                curr = curr.left;
+            }
+            if (!stack.isEmpty()) {
+                curr = stack.pop();
+            }
         }
     }
 }

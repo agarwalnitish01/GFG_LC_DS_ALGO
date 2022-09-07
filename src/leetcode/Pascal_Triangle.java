@@ -7,23 +7,23 @@ import java.util.List;
 public class Pascal_Triangle {
     public static void main(String[] args) {
 
-         int n = 5;
+         int n = 3;
 
-        List<List<Integer>> result = reshape2(n);
+        List<Integer> result = reshape2(n);
 
-        for( List<Integer> a : result){
-            for( Integer b : a){
-                System.out.print(b);
-            }
-            System.out.println();
+
+            for( Integer b : result){
+                System.out.print(b + " ");
+
         }
 
 
     }
 
-    public static List<List<Integer>> reshape2(int n) {
+    public static List<Integer> reshape2(int n) {
+        ++n;
         List<List<Integer>> res = new ArrayList<>();
-        int[][] result = new int[n][n];
+        int[][] result = new int[n+3][n+3];
         int i,j;
         for( i = 0 ;i<n;i++){
             Arrays.fill(result[i],-1);
@@ -41,6 +41,7 @@ public class Pascal_Triangle {
             }
             res.add(temp);
         }
-        return res;
+
+        return res.get(n-1);
     }
 }
