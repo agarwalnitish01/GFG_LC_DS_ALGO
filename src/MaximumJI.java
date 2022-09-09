@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class MaximumJK{
+class MaximumJI{
 
     // Function to find maximum
 // index difference

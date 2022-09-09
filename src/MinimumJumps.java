@@ -1,46 +1,39 @@
+import java.util.Arrays;
+
 class MinimumJumps {
+
     public static int jump(int[] nums) {
-        int totalWindows = nums.length > 1 ? 1 : 0;
-        int start = 0;
-        int end = nums[0];
-        while (end <= nums.length) {
-            int maxReachableIdx = maxIndexReachableFromGivenWindow(nums, start, end);
-            totalWindows++;
-            start = end + 1;
-            end = maxReachableIdx;
-        }
-        return totalWindows;
-    }
+        int farthest=0;
+        int current=0;
+        int jump=0;
 
-    public static int maxIndexReachableFromGivenWindow(int[] array, int startIdx, int endIdx) {
-        int max = endIdx;
-        for (int i = startIdx; i <= endIdx; i++)
-            max = Math.max(max, i + array[i]);
-        return max;
-    }
-
-    private static int minJumps(int[] arr, int n)
-    {
-        int[] jumps = new int[n];
-        // result
-        int i, j;
-
-        if (n == 0 || arr[0] == 0)
-            return Integer.MAX_VALUE;
-
-        jumps[0] = 0;
-
-        for (i = 1; i < n; i++) {
-            jumps[i] = Integer.MAX_VALUE;
-            for (j = 0; j < i; j++) {
-                if (j + arr[j]>=i) {
-                    jumps[i] = Math.min(jumps[i], jumps[j] + 1);
-                    break;
-                }
-
+        if(nums.length==1)
+            return 0;
+        for( int i=0;i<nums.length-1;i++){
+            farthest=Math.max(farthest,nums[i]+i);
+            if(i==current){
+                current=farthest;
+                jump++;
             }
         }
-        return jumps[n - 1];
+        return jump;
+    }
+
+    public static int jumpDP(int[] arr) {
+        int i,j;
+        int n = arr.length;
+        int[] jumps = new int[arr.length];
+        jumps[0] = 0;
+        for(i = 1 ;i<n;i++){
+            jumps[i] = Integer.MAX_VALUE;
+            for(j=0;j<i;j++){
+                if(j+arr[j]>=i){
+                    jumps[i]  = Math.min(jumps[i],jumps[j]+1);
+                    break;
+                }
+            }
+        }
+        return jumps[n-1];
     }
 
     static boolean canReach(int[] arr, int n){
@@ -55,18 +48,36 @@ class MinimumJumps {
         return true;
     }
 
+    static boolean canReachDP(int[] nums){
+        int n = nums.length;
+        if(n<=1)
+            return true;
+        if(nums[0]==0)
+            return false;
+        int[] dp =new int[n];
+        dp[0]=nums[0];
+
+        for(int i=1;i<n;i++){
+            dp[i] = Math.max(dp[i-1]-1,nums[i]);
+            if(dp[i]==0 && i!=n-1){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     // Driver code
     public static void main(String[] args)
     {
-        int[] arr = {1,2,2,3,0};
+        int[] arr = {2,3,1,2,4,2};
         int n = arr.length;
-        System.out.println("Reachable ? "
+        System.out.println("Reachable - "
                 + canReach(arr, n ));
-        System.out.println("Minimum number of jumps to reach end is "
-                + jump(arr));
-
         System.out.print("Minimum number of jumps to reach end is "
-                + minJumps(arr,  n ));
+                + jumpDP(arr ));
+        System.out.print("Minimum number of jumps to reach end is "
+                + jump(arr ));
     }
 }
  
