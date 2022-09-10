@@ -17,12 +17,10 @@ public class Buy_And_Sell_Stock_III_IV {
         Arrays.fill(dp,Integer.MIN_VALUE);
         dp[0]=0;
 
-        for(int j = 0; j < prices.length; j++) {
-
-            for(int i = 0; i+2 <= 2*k; i += 2){
-
-                dp[i+1] = Math.max(dp[i+1], dp[i]-prices[j]);
-                dp[i+2] = Math.max(dp[i+2], dp[i+1]+prices[j]);
+        for(int i = 0; i < prices.length; i++) {
+            for(int j = 0; j+2 <= 2*k; j += 2){
+                dp[j+1] = Math.max(dp[j+1], dp[j]-prices[i]);
+                dp[j+2] = Math.max(dp[j+2], dp[j+1]+prices[i]);
             }
         }
         return dp[dp.length-1];
