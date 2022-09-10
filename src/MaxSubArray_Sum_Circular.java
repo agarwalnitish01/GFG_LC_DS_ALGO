@@ -1,7 +1,7 @@
 class MaxSubArray_Sum_Circular {
 
     //kadane
-    static int maxSum(int arr[], int n) {
+    static int maxSum(int[] arr, int n) {
         int total = 0;
         for (int i = 0; i < n; i++) {
             total += arr[i];

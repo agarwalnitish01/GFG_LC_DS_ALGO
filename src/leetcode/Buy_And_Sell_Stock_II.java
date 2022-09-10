@@ -1,6 +1,6 @@
 package leetcode;
 
-public class BuyAndSellStock_II {
+public class Buy_And_Sell_Stock_II {
     public static void main(String[] args) {
         int[] arr = {7,1,4,2,6,9};
         System.out.println(maxProfit(arr));

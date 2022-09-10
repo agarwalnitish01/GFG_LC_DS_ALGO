@@ -1,19 +1,22 @@
-import java.util.*;
+package leetcode;
 
-class SubArrayDivisivleByK_sol2 {
+import java.util.HashMap;
+import java.util.Map;
 
-    public static int subarraysDivByK(int[] nums, int k) {
+class SubArrayDivisibleByK {
+
+    public static int subarraysDivByK(int[] arr, int k) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         int currSum = 0;
         int count = 0;
 
         map.put(0, 1);
 
-        for(int i=0; i<nums.length; i++) {
-            currSum += nums[i];
+        for(int i=0; i<arr.length; i++) {
+            currSum = currSum + arr[i];
             int reminder = (currSum+k) % k;
             if(map.containsKey(reminder)) {
-                count += map.get(reminder);
+                count = count + map.get(reminder);
             }
             map.put(reminder, map.getOrDefault(reminder, 0)+1);
         }

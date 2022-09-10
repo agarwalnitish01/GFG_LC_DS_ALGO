@@ -3,7 +3,7 @@ package leetcode;
 public class SubArraySumLessThanK {
     public static void main(String[] args) {
         int[] a = {2,3,1,2,4,3};
-        System.out.println("Maximum contiguous sum is " +
+        System.out.println("Maximum contiguous sum array length is " +
                 minSubArrayLen(7, a));
     }
 
