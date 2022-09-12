@@ -46,7 +46,7 @@ class Decode {
     // Driver code
     public static void main(String[] args)
     {
-        char digits[] = { '1', '2', '3', '4' };
+        char[] digits = { '1', '2', '3', '4' };
         int n = digits.length;
         System.out.printf("Count is %d",countWays(digits, n));
     }
