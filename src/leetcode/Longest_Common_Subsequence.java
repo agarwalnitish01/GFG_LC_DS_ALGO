@@ -2,8 +2,8 @@ package leetcode;
 
 public class Longest_Common_Subsequence {
     public static void main(String[] args){
-        String a = "leetcode";
-        String b = "etco";
+        String a = "12321";
+        String b = "32417";
         System.out.print(longestCommonSubsequence(a,b));
 
     }
@@ -11,7 +11,9 @@ public class Longest_Common_Subsequence {
     public static int longestCommonSubsequence(String text1, String text2) {
         int len1 = text1.length();
         int len2 = text2.length();
+        int ans=0;
         int[][] dp = new int[len2+1][len1+1];
+
         for(int i=1;i<=len2;i++){
             for(int j=1;j<=len1;j++){
                 if(text2.charAt(i-1) == text1.charAt(j-1)){
@@ -22,7 +24,7 @@ public class Longest_Common_Subsequence {
                 }
             }
         }
-        System.out.println(len1+len2-2*dp[len2][len1]);
+        //System.out.println(len1+len2-2*dp[len2][len1]);
         return dp[len2][len1];
     }
 }
