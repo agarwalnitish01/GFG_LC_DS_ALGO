@@ -10,10 +10,13 @@ public class Minimum_Time_Orange_Rotten {
 
 
     static boolean checkAll(int[][] arr, int m, int n) {
-        for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++)
-                if (arr[i][j] == 1)
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (arr[i][j] == 1) {
                     return true;
+                }
+            }
+        }
         return false;
     }
 
@@ -25,11 +28,14 @@ public class Minimum_Time_Orange_Rotten {
         Queue<int[]> Q = new LinkedList<>();
         int[] temp;
         int ans = 0;
-        int x_new,y_new;
-        for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++)
-                if (arr[i][j] == 2)
+        int x_new, y_new;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (arr[i][j] == 2) {
                     Q.add(new int[]{i, j});
+                }
+            }
+        }
 
 
         while (!Q.isEmpty()) {
@@ -48,14 +54,6 @@ public class Minimum_Time_Orange_Rotten {
 
                 x_new = temp[0] - 1;
                 y_new = temp[1];
-                if (isValid(x_new,y_new, arr, m, n)) {
-                    flag = true;
-                    arr[x_new][y_new] = 2;
-                    Q.add(new int[]{x_new, y_new});
-                }
-
-                x_new = temp[0];
-                y_new = temp[1]+1;
                 if (isValid(x_new, y_new, arr, m, n)) {
                     flag = true;
                     arr[x_new][y_new] = 2;
@@ -63,7 +61,15 @@ public class Minimum_Time_Orange_Rotten {
                 }
 
                 x_new = temp[0];
-                y_new = temp[1]-1;
+                y_new = temp[1] + 1;
+                if (isValid(x_new, y_new, arr, m, n)) {
+                    flag = true;
+                    arr[x_new][y_new] = 2;
+                    Q.add(new int[]{x_new, y_new});
+                }
+
+                x_new = temp[0];
+                y_new = temp[1] - 1;
                 if (isValid(x_new, y_new, arr, m, n)) {
                     flag = true;
                     arr[x_new][y_new] = 2;
@@ -72,8 +78,9 @@ public class Minimum_Time_Orange_Rotten {
                 Q.remove();
 
             }
-            if (flag)
+            if (flag) {
                 ans++;
+            }
         }
 
         return (checkAll(arr, m, n)) ? -1 : ans;
