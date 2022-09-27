@@ -1,7 +1,6 @@
 package leetcode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 
 public class Binary_tree_LCA {
@@ -25,39 +24,61 @@ public class Binary_tree_LCA {
     }
 
 
-    public static TreeNode lowestCommonAncestor(TreeNode root,TreeNode p, TreeNode q) {
-        if(root == null)
-            return root;
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
 
-        while(root != null){
-            int curr = root.val;
+        Map<TreeNode, TreeNode> parent = new HashMap<>();
 
-            if(curr < p.val && curr < q.val)
-                root = root.right;
-            else if(curr > p.val && curr>q.val)
-                root = root.left;
-            else
-                break;
+        parent.put(root, null);
+        stack.push(root);
+
+        while (!parent.containsKey(p) || !parent.containsKey(q)) {
+
+            TreeNode node = stack.pop();
+
+            if (node.left != null) {
+                parent.put(node.left, node);
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                parent.put(node.right, node);
+                stack.push(node.right);
+            }
         }
-        return root;
+
+        Set<TreeNode> ancestors = new HashSet<>();
+
+        while (p != null) {
+            ancestors.add(p);
+            p = parent.get(p);
+        }
+
+        while (!ancestors.contains(q)) {
+            q = parent.get(q);
+        }
+        return q;
     }
 
     public static void main(String[] args) {
-        TreeNode tree = new TreeNode(4);
-        tree.left = new TreeNode(2);
-        tree.right = new TreeNode(7);
-        tree.left.left = new TreeNode(1);
-        tree.left.right = new TreeNode(3);
-        tree.right.left = new TreeNode(6);
-        tree.right.right = new TreeNode(9);
+        TreeNode tree = new TreeNode(3);
+        tree.left = new TreeNode(5);
+        tree.right = new TreeNode(1);
+        tree.left.left = new TreeNode(6);
+        tree.left.right = new TreeNode(2);
+        tree.left.right.left = new TreeNode(7);
+        tree.left.right.right = new TreeNode(4);
+        tree.right.left = new TreeNode(0);
+        tree.right.right = new TreeNode(8);
 
         /*
-                    4
-               2        7
-            1    3    6    9
+                    3
+               5        1
+            6    2    0    8
+                7  4
         */
-        TreeNode result = lowestCommonAncestor(tree,tree.left.left,tree.left.right);
-        System.out.print(result.val);
+
+        System.out.print(lowestCommonAncestor(tree, tree.left, tree.left).val);
+        System.out.print(lowestCommonAncestor(tree, tree.left, tree.left).val);
     }
 
 }
