@@ -99,26 +99,6 @@ public class Binary_tree_Traversals {
         }
     }
 
-    public static void inorderIterative(TreeNode root)
-    {
-        if (root == null)
-            return;
-
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode curr = root;
-
-        while (curr != null || !stack.isEmpty()) {
-            while (curr !=  null) {
-                stack.push(curr);
-                curr = curr.left;
-            }
-            curr = stack.pop();
-            System.out.print(curr.val + " ");
-            curr = curr.right;
-        }
-    }
-
-
     public static void preOrderIterative(TreeNode root)
     {
         if (root == null)
@@ -140,4 +120,26 @@ public class Binary_tree_Traversals {
             }
         }
     }
+
+    public static void inorderIterative(TreeNode root)
+    {
+        if (root == null)
+            return;
+
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            while (curr !=  null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            System.out.print(curr.val + " ");
+            curr = curr.right;
+        }
+    }
+
+
+
 }
