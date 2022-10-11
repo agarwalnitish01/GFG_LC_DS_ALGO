@@ -60,17 +60,7 @@ public class Binary_tree_Point_Left_Tree_To_Right {
 
         */
 
-        Node treeNode =  connect(tree);
-       /* Node copy = treeNode;
-        while(treeNosde!=null){
-            System.out.println(treeNode.val);
-            if(treeNode.next==null){
-                copy = treeNode;
-                treeNode = treeNode.left;
-            }else {
-                treeNode = treeNode.next;
-            }
-        }*/
+        Node treeNode =  connect1(tree);
     }
 
     public static Node connect1(Node root) {

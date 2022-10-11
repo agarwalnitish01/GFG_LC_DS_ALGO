@@ -1,3 +1,4 @@
+package leetcode;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -25,58 +26,33 @@ public class Minimum_Time_Orange_Rotten {
         int m = arr.length;
         int n = arr[0].length;
 
-        Queue<int[]> Q = new LinkedList<>();
-        int[] temp;
+        Queue<int[]> queue = new LinkedList<>();
+
         int ans = 0;
-        int x_new, y_new;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (arr[i][j] == 2) {
-                    Q.add(new int[]{i, j});
+                    queue.add(new int[]{i, j});
                 }
             }
         }
 
+        int[] dirX = {1, 0, 0, -1};
+        int[] dirY = {0, 1, -1, 0};
 
-        while (!Q.isEmpty()) {
+        while (!queue.isEmpty()) {
             boolean flag = false;
-            int size = Q.size();
+            int size = queue.size();
             for (int i = 0; i < size; i++) {
-                temp = Q.peek();
-
-                x_new = temp[0] + 1;
-                y_new = temp[1];
-                if (isValid(x_new, y_new, arr, m, n)) {
-                    flag = true;
-                    arr[x_new][y_new] = 2;
-                    Q.add(new int[]{x_new, y_new});
+                int[] temp = queue.poll();
+                for(int j=0;j<4;j++) {
+                    int x_new = temp[0] + dirX[j];
+                    int y_new = temp[1] + dirY[j];
+                    boolean tempFlag =  addToQueue(arr, m, n, queue, flag, x_new, y_new);
+                    if(tempFlag){
+                        flag=true;
+                    }
                 }
-
-                x_new = temp[0] - 1;
-                y_new = temp[1];
-                if (isValid(x_new, y_new, arr, m, n)) {
-                    flag = true;
-                    arr[x_new][y_new] = 2;
-                    Q.add(new int[]{x_new, y_new});
-                }
-
-                x_new = temp[0];
-                y_new = temp[1] + 1;
-                if (isValid(x_new, y_new, arr, m, n)) {
-                    flag = true;
-                    arr[x_new][y_new] = 2;
-                    Q.add(new int[]{x_new, y_new});
-                }
-
-                x_new = temp[0];
-                y_new = temp[1] - 1;
-                if (isValid(x_new, y_new, arr, m, n)) {
-                    flag = true;
-                    arr[x_new][y_new] = 2;
-                    Q.add(new int[]{x_new, y_new});
-                }
-                Q.remove();
-
             }
             if (flag) {
                 ans++;
@@ -85,6 +61,15 @@ public class Minimum_Time_Orange_Rotten {
 
         return (checkAll(arr, m, n)) ? -1 : ans;
 
+    }
+
+    private static boolean addToQueue(int[][] arr, int m, int n, Queue<int[]> queue, boolean flag, int x_new, int y_new) {
+        if (isValid(x_new, y_new, arr, m, n)) {
+            flag = true;
+            arr[x_new][y_new] = 2;
+            queue.add(new int[]{x_new, y_new});
+        }
+        return flag;
     }
 
     // Driver program
