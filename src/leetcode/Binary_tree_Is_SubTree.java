@@ -62,7 +62,6 @@ public class Binary_tree_Is_SubTree {
         }
     }
 
-
     public static void main(String[] args){
         TreeNode tree = new TreeNode(1);
         tree.left = new TreeNode(2);
@@ -85,10 +84,6 @@ public class Binary_tree_Is_SubTree {
         System.out.println(isSubtree(tree,tree1));
         System.out.println(isSubtreeBFS(tree,tree1));
     }
-
-
-
-
 
 
 
