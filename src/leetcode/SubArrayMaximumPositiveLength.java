@@ -11,9 +11,9 @@ public class SubArrayMaximumPositiveLength {
                 int temp = pos;
                 pos = neg;
                 neg = temp;
-                neg = neg + 1;
+                neg++;
                 if (pos != 0) {
-                    pos = pos + 1;
+                    pos++;
                 }
             } else if (i == 0) {
                 pos = 0;
@@ -21,7 +21,7 @@ public class SubArrayMaximumPositiveLength {
             } else {
                 pos++;
                 if (neg != 0) {
-                    neg = neg + 1;
+                    neg++;
                 }
             }
             maxLen = Math.max(maxLen, pos);
@@ -32,7 +32,7 @@ public class SubArrayMaximumPositiveLength {
 
     public static void main(String[] args) {
         int[] a = {9, 5, 8, 2, -6, 4, -3, 0, 2, -5, 15, 10, -7, 9, -2};
-        System.out.println("Maximum contiguous sum is " +
+        System.out.println("Maximum contiguous product length is " +
                 getMaxLen(a));
     }
 }

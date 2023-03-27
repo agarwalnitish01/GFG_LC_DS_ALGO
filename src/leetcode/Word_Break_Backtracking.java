@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-public class Backtracking_WordBreak {
+public class Word_Break_Backtracking {
 
     public static List<String> wordBreak(String s, List<String> wordDict) {
         Set<String> words = new HashSet<>(wordDict);
@@ -11,14 +11,14 @@ public class Backtracking_WordBreak {
         return result;
     }
 
-    static void dfs(String s , Set<String> wordDict, List<String> current, List<String> result, int start){
-        if(start == s.length()) {
+    static void dfs(String s , Set<String> wordDict, List<String> current, List<String> result, int j){
+        if(j == s.length()) {
             result.add(String.join(" ",current));
             return;
         }
 
-        for(int i = start ; i < s.length() ; i++){
-            String str = s.substring(start , i + 1);
+        for(int i = j ; i < s.length() ; i++){
+            String str = s.substring(j , i + 1);
             if(wordDict.contains(str)){
                 current.add(str);
                 dfs(s,  wordDict, current, result, i + 1);

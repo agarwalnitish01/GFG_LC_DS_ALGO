@@ -11,19 +11,16 @@ public class Sort_Characters_By_Frequency {
 
 
         for (char i : s.toCharArray()) {
-            int count = map.getOrDefault(i, 0);
-            map.put(i, ++count);
+            map.put(i, map.getOrDefault(i, 0)+1);
         }
 
 
         for (Character i : map.keySet()) {
-            StringBuilder br = new StringBuilder();
-
-            int len = map.get(i);
-            for (int j = 0; j < len; j++) {
-                br.append(i);
+           String br = "";
+            for (int j = 0; j < map.get(i); j++) {
+                br= br + i;
             }
-            pq.add(br.toString());
+            pq.add(br);
         }
 
         StringBuilder answer = new StringBuilder();

@@ -2,10 +2,10 @@ package leetcode;
 
 public class SearchRotatedArray {
     public static void main(String[] args){
-        int[] arr = {4,5,6,7,8,9,0,1,2};
+        int[] arr = {1,3};
         int target = 1;
         System.out.println(SearchInRotatedArray(arr,target));
-        System.out.println(search(arr,0,arr.length-1,target));
+        //System.out.println(search(arr,0,arr.length-1,target));
     }
 
     public static int binarySearch(int[] nums, int target, int l, int h) {
@@ -27,10 +27,12 @@ public class SearchRotatedArray {
 
     public static int SearchInRotatedArray(int[] arr, int target){
         int pivotElement = findPivot(arr, 0, arr.length - 1);
+        if(pivotElement == -1)
+            return binarySearch(arr,target, 0, arr.length - 1);
         if(arr[pivotElement] == target){
             return pivotElement;
         } else if (arr[0] > target){
-            return binarySearch(arr,target, pivotElement+1, arr.length);
+            return binarySearch(arr,target, pivotElement+1, arr.length-1);
         } else {
             return binarySearch(arr,target, 0, pivotElement-1);
         }

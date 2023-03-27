@@ -18,17 +18,21 @@ public class ThreeSum_Closest {
             while(start < end){
                 if(nums[i] + nums[start] + nums[end] == target)
                     return target;
+
                 else if(Math.abs(nums[i] + nums[start] + nums[end] - target) < diff){
                     diff = Math.abs(nums[i] + nums[start] + nums[end] - target);
                     ans = nums[i] + nums[start] + nums[end];
                 }
 
-                if(nums[i] + nums[start] + nums[end] < target){
-                    while(start+1 < n && nums[start]==nums[start+1])start++;
+                if (nums[i] + nums[start] + nums[end] < target) {
+                    while (start < end && nums[start] == nums[start + 1]) {
+                        start++;
+                    }
                     start++;
-                }
-                else {
-                    while(end-1 >= 0 && nums[end]==nums[end-1])end--;
+                } else {
+                    while (start < end  && nums[end] == nums[end - 1]) {
+                        end--;
+                    }
                     end--;
                 }
             }

@@ -1,14 +1,15 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class SubArraySumEqualToK {
 
     static int findSubarraySum(int[] arr, int n, int sum) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         map.put(0, 1);
-        int count = 0;
 
+        int count = 0;
         int currSum = 0;
 
         for (int i = 0; i < n; i++) {

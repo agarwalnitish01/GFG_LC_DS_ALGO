@@ -24,7 +24,7 @@ class Subsets_II {
 
     public static void main(String[] args) {
         int[] arr = {1,2,2};
-        List<List<Integer>> result = subsetsWithDup2(arr);
+        List<List<Integer>> result = subsets(arr);
 
         for(List<Integer> list : result){
             for(int a : list){

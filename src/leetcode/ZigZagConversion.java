@@ -22,7 +22,7 @@ class ZigZagConversion {
 
 
         for (int i = 0; i < len; ++i) {
-            arr[row] = arr[row] +  (str1[i]);
+            arr[row] = arr[row] +  str1[i];
 
             if (row == n - 1) {
                 down = false;

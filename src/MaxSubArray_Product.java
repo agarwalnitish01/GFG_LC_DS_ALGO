@@ -17,11 +17,11 @@ class MaxSubArray_Product {
 
     // Driver code
     public static void main(String[] args) {
-        int[] arr ={1, 3, -10, 100,-20,-10,1, 5};
+        int[] arr ={2,3,-2,4};
         int n = arr.length;
-        System.out.println("Maximum Sub array product is %d" + maxSubarrayProduct(arr, n));
-        System.out.println("Maximum Sub array product is %d" + max(arr, n));
-        System.out.println("Maximum Sub array product is %d" + maxProduct(arr));
+        System.out.println("Maximum Sub array product is " + maxSubarrayProduct(arr, n));
+        System.out.println("Maximum Sub array product is " + max(arr, n));
+        System.out.println("Maximum Sub array product is " + maxProduct(arr));
     }
 
     static int max(int[] arr, int n) {
