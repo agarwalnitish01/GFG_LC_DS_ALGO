@@ -1,6 +1,6 @@
 package leetcode;
 
-import javafx.util.Pair;
+import Different.PairKeyValueInteger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,11 +13,11 @@ public class Top_K_Frequent_Elements {
         for (int i : nums)
             map.put(i, map.getOrDefault(i, 0) + 1);
 
-        PriorityQueue<Pair<Integer, Integer>> queue = new PriorityQueue<>(
+        PriorityQueue<PairKeyValueInteger<Integer, Integer>> queue = new PriorityQueue<>(
                 (a, b) -> b.getValue() - a.getValue());
 
         for (int key : map.keySet()) {
-            queue.offer(new Pair<>(key, map.get(key)));
+            queue.offer(new PairKeyValueInteger<>(key, map.get(key)));
         }
 
         int[] ans = new int[k];

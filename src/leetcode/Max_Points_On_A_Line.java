@@ -1,23 +1,23 @@
 package leetcode;
 
-import javafx.util.Pair;
+import Different.PairKeyValueDouble;
 
 import java.util.*;
 
 public class Max_Points_On_A_Line {
 
-    static Pair getLine(int[] a, int[] b){
+    static PairKeyValueDouble getLine(int[] a, int[] b){
         if(a[0]==b[0])
-            return new Pair<>(null,(double)a[0]);
-        return new Pair<>((double)(a[1]-b[1])/(double)(a[0]-b[0]), a[1]-((double)(a[1]-b[1])/(double)(a[0]-b[0]))*a[0]);
+            return new PairKeyValueDouble<>(null,(double)a[0]);
+        return new PairKeyValueDouble<>((double)(a[1]-b[1])/(double)(a[0]-b[0]), a[1]-((double)(a[1]-b[1])/(double)(a[0]-b[0]))*a[0]);
     }
 
     public static int maxPoints(int[][] points) {
         int len=points.length,i,j,maxSize=1;
-        HashMap<Pair,HashSet<Integer>> map = new HashMap<>();
+        HashMap<PairKeyValueDouble,HashSet<Integer>> map = new HashMap<>();
         for(i=0;i<len;i++){
             for(j=i+1;j<len;j++){
-                Pair<Double,Double> line=getLine(points[i],points[j]);
+                PairKeyValueDouble<Double,Double> line=getLine(points[i],points[j]);
                 HashSet<Integer> set = map.containsKey(line)? map.get(line) : new HashSet<>();
                 set.add(i);
                 set.add(j);
