@@ -34,8 +34,8 @@ public class MinimumPlatforms {
 
     // Driver Code
     public static void main(String[] args) {
-        int[] arr = {100, 300, 600};
-        int[] dep = {900, 400, 500};
+        int[] arr = {1,3,0,5,8,5};
+        int[] dep = {2,4,6,7,9,9};
         int n = arr.length;
         System.out.println(findPlatformOptimized(arr, dep, n));
     }
