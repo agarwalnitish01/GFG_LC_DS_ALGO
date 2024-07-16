@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+// Given an array arr[], find the maximum j – i such that arr[i] <= arr[j]
+
 class MaximumJI{
 
     // Function to find maximum
