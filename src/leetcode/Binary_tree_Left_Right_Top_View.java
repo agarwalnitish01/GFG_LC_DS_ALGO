@@ -132,7 +132,8 @@ public class Binary_tree_Left_Right_Top_View {
             // left and right nodes
             int ind = top.second; // store the vertical
             // index of current node
-            hash.put(ind, temp.val); // store the latest
+            hash.put(ind,
+                    temp.val); // store the latest
             // vertical_index(key) ->
             // root->data(value)
             leftmost = Math.min(
