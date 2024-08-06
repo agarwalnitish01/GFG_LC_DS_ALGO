@@ -68,7 +68,7 @@ public class OddEvenThread {
                 // Increment counter
                 counter++;
 
-                // Notify to 2nd thread
+                // ØNotify to 2nd thread
                 notify();
             }
         }
