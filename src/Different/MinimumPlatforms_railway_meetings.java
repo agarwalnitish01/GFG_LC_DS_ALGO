@@ -16,20 +16,17 @@ public class MinimumPlatforms_railway_meetings {
         }
 
         // Create a list to store the count of trains at each time
-        List<Integer> v = new ArrayList<>(maxDepartureTime + 2);
-        for (int i = 0; i < maxDepartureTime + 2; i++) {
-            v.add(0);
-        }
+        int[] v = new int[maxDepartureTime + 2];
 
         // Increment the count at the arrival time and decrement at the departure time
         for (int i = 0; i < n; i++) {
-            v.set(arr[i], v.get(arr[i]) + 1);
-            v.set(dep[i] + 1, v.get(dep[i] + 1) - 1);
+            v[arr[i]] = v[arr[i]] +1;
+            v[dep[i]+1] =  v[dep[i]+1] -1;
         }
 
         // Iterate over the list and keep track of the maximum sum seen so far
         for (int i = 0; i <= maxDepartureTime + 1; i++) {
-            count += v.get(i);
+            count += v[i];
             maxPlatforms = Math.max(maxPlatforms, count);
         }
 

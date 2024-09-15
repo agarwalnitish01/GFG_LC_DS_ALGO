@@ -29,6 +29,7 @@ public class Minimum_Falling_Path_Sum {
             for(int j = 0; j < n; j++){
 
                 int min = dp[i - 1][j];//bottom
+
                 if (j >= 1){
                     min = Math.min(min, dp[i - 1][j - 1]);//left bottom
                 }

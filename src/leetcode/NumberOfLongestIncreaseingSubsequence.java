@@ -1,9 +1,9 @@
 package leetcode;
 import java.util.*;
 
-public class LongestIncreaseingSubsequence_II {
+public class NumberOfLongestIncreaseingSubsequence {
 
-    public static int minimumNumberofLongestSubsequence(int[] arr) {
+    public static int numberofLongestSubsequence(int[] arr) {
         int n = arr.length;
 
         int[]dp = new int[n];
@@ -44,7 +44,7 @@ public class LongestIncreaseingSubsequence_II {
 
     public static void main(String[] args) {
         int[] arr = {10,9,2,5,3,7,101,18};
-        System.out.println(minimumNumberofLongestSubsequence(arr));
+        System.out.println(numberofLongestSubsequence(arr));
     }
 
 
