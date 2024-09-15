@@ -2,9 +2,10 @@ package Different;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public class MinimumPlatforms {
+public class MinimumPlatforms_railway_meetings {
     // Function to find the minimum number of platforms required
     public static int findPlatformOptimized(int[] arr, int[] dep, int n) {
         int count = 0, maxPlatforms = 0;
@@ -35,10 +36,37 @@ public class MinimumPlatforms {
         return maxPlatforms;
     }
 
+    static int findPlatform(int arr[], int dep[], int n)
+    {
+        Arrays.sort(arr);
+        Arrays.sort(dep);
+
+        int plat_needed = 1, result = 1;
+        int i = 1, j = 0;
+
+        while (i < n && j < n) {
+
+            if (arr[i] <= dep[j]) {
+                plat_needed++;
+                i++;
+            }
+
+            else if (arr[i] > dep[j]) {
+                plat_needed--;
+                j++;
+            }
+
+            if (plat_needed > result)
+                result = plat_needed;
+        }
+
+        return result;
+    }
+
     // Driver Code
     public static void main(String[] args) {
-        int[] arr = {100, 300, 600};
-        int[] dep = {900, 400, 500};
+        int[] arr = {100, 300, 500};
+        int[] dep = {900, 400, 600};
         int n = arr.length;
         System.out.println(findPlatformOptimized(arr, dep, n));
     }

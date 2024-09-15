@@ -5,21 +5,21 @@ import java.util.*;
 public class GroupAnagrams {
     public static List<List<String>> groupAnagrams(String[] strs) {
 
-        Map<String,List<String>> stringListMap = new HashMap<>();
+        Map<String,List<String>> map = new HashMap<>();
         for(String a : strs){
             char []arr = a.toCharArray();
             Arrays.sort(arr);
             String sorted = String.valueOf(arr);
-            if(stringListMap.containsKey(sorted)){
-                stringListMap.get(sorted).add(a);
+            if(map.containsKey(sorted)){
+                map.get(sorted).add(a);
             } else {
                 List<String> strings1 = new ArrayList<>();
                 strings1.add(a);
-                stringListMap.put(sorted,strings1);
+                map.put(sorted,strings1);
             }
         }
 
-        return new ArrayList<>(stringListMap.values());
+        return new ArrayList<>(map.values());
     }
 
     public static void main(String[] args) {

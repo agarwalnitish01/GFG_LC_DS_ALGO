@@ -10,7 +10,8 @@ public class Matrix_Rotate {
                 {4,5,6},
                 {7,8,9}
         };
-        rotate(mat);
+        //rotate(mat);
+        rotate2(mat);
 
         for(int i = 0;i<3;i++) {
             for (int j = 0; j <3; j++) {
@@ -39,6 +40,29 @@ public class Matrix_Rotate {
         for(int i = 0;i<m;i++) {
             for(int j = 0; j <n; j++) {
                 matrix[i][j] = result[i][j];
+            }
+        }
+    }
+
+    public static void rotate2(int[][] matrix) {
+        int n= matrix.length;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+        for(int i=0;i<n;i++){
+            int start = 0;
+            int end = n-1;
+            while(start < end){
+                int temp = matrix[i][start];
+                matrix[i][start] = matrix[i][end];
+                matrix[i][end] = temp;
+                end--;
+                start++;
             }
         }
     }
