@@ -106,6 +106,32 @@ public class Binary_tree_Left_Right_Top_View {
         return result;
     }
 
+    public static List<Integer> belowbottomview(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode n = queue.poll();
+                if (n != null) {
+                    if(n.left==null && n.right == null) {
+                        result.add(n.val);
+                    }
+                    if(n.left!=null) {
+                        queue.add(n.left);
+                    }
+                    if(n.right!=null) {
+                        queue.add(n.right);
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
     static class pair {
         TreeNode first;
         int second;
@@ -162,9 +188,17 @@ public class Binary_tree_Left_Right_Top_View {
         tree.left = new TreeNode(2);
         tree.right = new TreeNode(3);
         tree.left.left = new TreeNode(4);
+
+        tree.left.left.left = new TreeNode(7);
+        tree.left.left.left.right = new TreeNode(11);
+        tree.left.left.left.right.right = new TreeNode(13);
+
         tree.left.right = new TreeNode(5);
-        tree.right.left = new TreeNode(6);
-        tree.right.right = new TreeNode(7);
+        tree.left.right.left = new TreeNode(8);
+        tree.left.right.right = new TreeNode(9);
+        tree.right.right = new TreeNode(6);
+        tree.right.right.right = new TreeNode(10);
+        tree.right.right.right.left = new TreeNode(12);
         /*
                     1
                2        3
@@ -187,5 +221,18 @@ public class Binary_tree_Left_Right_Top_View {
             System.out.print(list + " ");
         }
 
+        System.out.println();
+        for(Integer list: belowbottomview(tree) ){
+            System.out.print(list + " ");
+        }
+
+        System.out.println();
+
+
+        /*
+
+        1 2 4 7 11 13 8 9 12 10 6 3
+
+         */
     }
 }
