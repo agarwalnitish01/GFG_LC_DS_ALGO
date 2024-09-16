@@ -1,7 +1,7 @@
 package leetcode;
 
 import java.util.*;
-
+// 2^n
 public class Backtracking_CombinationSum_1 {
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
